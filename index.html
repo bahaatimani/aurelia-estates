@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURELIA ESTATES | Luxury Real Estate</title>
+
+    <style>
+        /* =========================
+   GLOBAL STYLES
+========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #151716;
+            color: #f4f1eb;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --gold: #c6a96c;
+            --dark: #151716;
+            --dark-light: #202321;
+            --cream: #f4f1eb;
+            --gray: #a5a5a0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            padding: 100px 8%;
+        }
+
+        /* =========================
+   NAVIGATION
+========================= */
+
+        .navbar {
+            width: 100%;
+            padding: 25px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #151716;
+            border-bottom: 1px solid rgba(198, 169, 108, 0.15);
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 26px;
+            letter-spacing: 4px;
+            color: var(--cream);
+            font-weight: normal;
+        }
+
+            .logo span {
+                display: block;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10px;
+                letter-spacing: 6px;
+                color: var(--gold);
+                text-align: center;
+                margin-top: 4px;
+            }
+
+        .navbar nav {
+            display: flex;
+            gap: 35px;
+        }
+
+            .navbar nav a {
+                color: #b8b8b2;
+                font-size: 13px;
+                transition: color 0.3s ease;
+            }
+
+                .navbar nav a:hover {
+                    color: var(--gold);
+                }
+
+        .nav-contact {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 24px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+            .nav-contact:hover {
+                background: var(--gold);
+                color: var(--dark);
+            }
+
+
+        /* =========================
+   HERO SECTION
+========================= */
+
+        .hero {
+            min-height: 85vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            overflow: hidden;
+            background: linear-gradient( 90deg, rgba(15, 17, 16, 0.95) 0%, rgba(15, 17, 16, 0.75) 45%, rgba(15, 17, 16, 0.2) 100% ), url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(48px, 6vw, 88px);
+            font-weight: normal;
+            line-height: 1.12;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            max-width: 470px;
+            color: #c2c2bc;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 16px 28px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+            .hero-btn:hover {
+                background: var(--cream);
+            }
+
+        .hero-link {
+            color: var(--cream);
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+            .hero-link:hover {
+                color: var(--gold);
+            }
+
+        .hero-bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 8%;
+            right: 8%;
+            display: flex;
+            justify-content: space-between;
+            color: #b8b8b2;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+
+        /* =========================
+   FEATURED PROPERTIES
+========================= */
+
+        .properties {
+            background: #1b1e1c;
+        }
+
+        /* Section Heading */
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 40px;
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            display: block;
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(34px, 4vw, 54px);
+            font-weight: normal;
+            color: var(--cream);
+        }
+
+        .section-heading p {
+            max-width: 390px;
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* Property Grid */
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        /* Property Cards */
+
+        .property-card {
+            background: #222623;
+            border: 1px solid rgba(198, 169, 108, 0.12);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            overflow: hidden;
+        }
+
+            .property-card:hover {
+                transform: translateY(-8px);
+                border-color: rgba(198, 169, 108, 0.65);
+            }
+
+        /* Property Images */
+
+        .property-image {
+            height: 270px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .property-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.7s ease;
+            }
+
+        .property-card:hover .property-image img {
+            transform: scale(1.07);
+        }
+
+        .property-tag {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 9px 13px;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        /* Property Information */
+
+        .property-info {
+            padding: 27px 24px;
+        }
+
+        .property-location {
+            color: var(--gold);
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .property-info h3 {
+            font-family: Georgia, serif;
+            font-size: 23px;
+            font-weight: normal;
+            margin: 13px 0 22px;
+            color: var(--cream);
+        }
+
+        .property-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            color: #aaa9a2;
+            font-size: 10px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .property-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding-top: 20px;
+        }
+
+        .property-price {
+            color: var(--cream);
+            font-family: Georgia, serif;
+            font-size: 19px;
+        }
+
+        .property-footer a {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+            .property-footer a:hover {
+                color: white;
+            }
+
+        /* Responsive Design */
+
+        @media (max-width: 1000px) {
+
+            .property-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-heading {
+                align-items: start;
+                flex-direction: column;
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .properties {
+                padding: 75px 6%;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .property-image {
+                height: 250px;
+            }
+
+            .property-info {
+                padding: 24px 20px;
+            }
+
+                .property-info h3 {
+                    font-size: 22px;
+                }
+        }
+
+
+        /* =========================
+   ABOUT SECTION
+========================= */
+
+        .about {
+            background: var(--dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 85px;
+        }
+
+        /* About Image */
+
+        .about-image {
+            position: relative;
+            height: 570px;
+            overflow: hidden;
+        }
+
+            .about-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.8s ease;
+            }
+
+            .about-image:hover img {
+                transform: scale(1.04);
+            }
+
+        .about-image-caption {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            padding: 18px 20px;
+            background: rgba(21, 23, 22, 0.85);
+            border-left: 2px solid var(--gold);
+            backdrop-filter: blur(8px);
+        }
+
+            .about-image-caption span {
+                color: var(--cream);
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+        /* About Content */
+
+        .about-content {
+            max-width: 540px;
+        }
+
+            .about-content h2 {
+                font-family: Georgia, serif;
+                font-size: clamp(36px, 4vw, 55px);
+                font-weight: normal;
+                line-height: 1.2;
+                margin-bottom: 28px;
+            }
+
+            .about-content p {
+                color: var(--gray);
+                font-size: 13px;
+                line-height: 2;
+                margin-bottom: 18px;
+            }
+
+        /* Statistics */
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 38px 0;
+            padding: 28px 0;
+            border-top: 1px solid rgba(198, 169, 108, 0.25);
+            border-bottom: 1px solid rgba(198, 169, 108, 0.25);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+            .stat strong {
+                color: var(--gold);
+                font-family: Georgia, serif;
+                font-size: 30px;
+                font-weight: normal;
+            }
+
+            .stat span {
+                color: #aaa9a2;
+                font-size: 10px;
+                line-height: 1.5;
+            }
+
+        /* About Button */
+
+        .about-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 16px 25px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+            .about-btn span {
+                font-size: 17px;
+                transition: transform 0.3s ease;
+            }
+
+            .about-btn:hover {
+                background: var(--cream);
+            }
+
+                .about-btn:hover span {
+                    transform: translateX(5px);
+                }
+
+        /* Responsive Design */
+
+        @media (max-width: 1000px) {
+
+            .about {
+                gap: 45px;
+            }
+
+            .about-image {
+                height: 480px;
+            }
+
+            .about-stats {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 75px 6%;
+            }
+
+            .about-image {
+                height: 380px;
+            }
+
+            .about-content {
+                max-width: 100%;
+            }
+
+            .about-stats {
+                gap: 12px;
+            }
+
+            .stat strong {
+                font-size: 25px;
+            }
+
+            .stat span {
+                font-size: 9px;
+            }
+        }
+
+
+
+        /* =========================
+   SERVICES SECTION
+========================= */
+
+        .services {
+            background: #202321;
+        }
+
+        /* Section Heading */
+
+        .services-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+            .services-heading .section-label {
+                margin-bottom: 20px;
+            }
+
+            .services-heading h2 {
+                font-family: Georgia, serif;
+                font-size: clamp(35px, 4vw, 55px);
+                font-weight: normal;
+                margin-bottom: 22px;
+                color: var(--cream);
+            }
+
+            .services-heading p {
+                color: var(--gray);
+                font-size: 13px;
+                line-height: 1.9;
+            }
+
+        /* Services Grid */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid rgba(198, 169, 108, 0.2);
+        }
+
+        /* Service Cards */
+
+        .service-card {
+            padding: 38px 28px;
+            position: relative;
+            background: #202321;
+            border-right: 1px solid rgba(198, 169, 108, 0.15);
+            transition: background 0.4s ease, transform 0.4s ease;
+        }
+
+            .service-card:last-child {
+                border-right: none;
+            }
+
+            .service-card:hover {
+                background: #292d2a;
+            }
+
+        /* Number */
+
+        .service-number {
+            color: #777b74;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Decorative Icons */
+
+        .service-icon {
+            color: var(--gold);
+            font-size: 35px;
+            margin: 35px 0 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: translateY(-5px);
+        }
+
+        /* Service Titles */
+
+        .service-card h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            font-weight: normal;
+            color: var(--cream);
+            margin-bottom: 18px;
+        }
+
+        /* Service Description */
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.9;
+            min-height: 92px;
+            margin-bottom: 25px;
+        }
+
+        /* Service Links */
+
+        .service-card a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(198, 169, 108, 0.2);
+            padding-top: 18px;
+            transition: color 0.3s ease;
+        }
+
+            .service-card a span {
+                font-size: 17px;
+                transition: transform 0.3s ease;
+            }
+
+            .service-card a:hover {
+                color: var(--cream);
+            }
+
+                .service-card a:hover span {
+                    transform: translateX(5px);
+                }
+
+        /* Tablet */
+
+        @media (max-width: 1000px) {
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card:nth-child(2) {
+                border-right: none;
+            }
+
+            .service-card:nth-child(1),
+            .service-card:nth-child(2) {
+                border-bottom: 1px solid rgba(198, 169, 108, 0.15);
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .services {
+                padding: 75px 6%;
+            }
+
+            .services-heading {
+                margin-bottom: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(198, 169, 108, 0.15);
+                padding: 30px 25px;
+            }
+
+                .service-card:last-child {
+                    border-bottom: none;
+                }
+
+                .service-card p {
+                    min-height: auto;
+                }
+
+            .service-icon {
+                margin: 25px 0 18px;
+            }
+        }
+
+
+
+
+        /* =========================
+   PROPERTY SEARCH
+========================= */
+
+        .property-search {
+            position: relative;
+            background: linear-gradient( rgba(15, 17, 16, 0.88), rgba(15, 17, 16, 0.92) ), url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        /* Search Content */
+
+        .search-content {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+            .search-content h2 {
+                font-family: Georgia, serif;
+                font-size: clamp(38px, 5vw, 65px);
+                font-weight: normal;
+                line-height: 1.2;
+                margin-bottom: 20px;
+                color: var(--cream);
+            }
+
+            .search-content > p {
+                color: #b8b8b2;
+                font-size: 13px;
+                line-height: 1.9;
+                margin-bottom: 45px;
+            }
+
+        /* Search Box */
+
+        .search-box {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr auto;
+            background: rgba(32, 35, 33, 0.95);
+            border: 1px solid rgba(198, 169, 108, 0.35);
+            padding: 12px;
+            text-align: left;
+            backdrop-filter: blur(12px);
+        }
+
+        /* Fields */
+
+        .search-field {
+            padding: 18px 22px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+            .search-field label {
+                display: block;
+                color: var(--gold);
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+            }
+
+            .search-field input,
+            .search-field select {
+                width: 100%;
+                border: none;
+                outline: none;
+                background: transparent;
+                color: var(--cream);
+                font-size: 12px;
+                font-family: inherit;
+            }
+
+                .search-field input::placeholder {
+                    color: #999b95;
+                }
+
+            .search-field select {
+                cursor: pointer;
+            }
+
+                .search-field select option {
+                    background: #202321;
+                    color: var(--cream);
+                }
+
+        /* Search Button */
+
+        .search-button {
+            width: auto;
+            min-width: 0;
+            flex: 1;
+            padding: 18px 35px;
+            background: #d8bd86;
+            color: #171a18;
+            border: 1px solid #d8bd86;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .search-button:hover {
+                background: transparent;
+                color: #d8bd86;
+            }
+
+
+
+        .search-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .reset-button {
+            padding: 16px 28px;
+            background: transparent;
+            color: #d8bd86;
+            border: 1px solid #d8bd86;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .reset-button:hover {
+                background: #d8bd86;
+                color: #171a18;
+            }
+
+        /* Search Note */
+
+        .search-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #a5a5a0;
+            font-size: 9px;
+            letter-spacing: 2px;
+            margin-top: 30px;
+        }
+
+            .search-note span {
+                width: 6px;
+                height: 6px;
+                background: var(--gold);
+                border-radius: 50%;
+            }
+
+        /* Tablet */
+
+        @media (max-width: 900px) {
+
+            .search-box {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-field:nth-child(2) {
+                border-right: none;
+            }
+
+            .search-field:nth-child(1),
+            .search-field:nth-child(2) {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .search-button {
+                min-height: 60px;
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .property-search {
+                padding: 75px 6%;
+                background-attachment: scroll;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .search-field {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 20px 15px;
+            }
+
+                .search-field:nth-child(2) {
+                    border-right: none;
+                }
+
+                .search-field:nth-child(3) {
+                    border-bottom: none;
+                }
+
+            .search-button {
+                min-height: 58px;
+            }
+        }
+
+
+
+        /* =========================
+   LUXURY CTA SECTION
+========================= */
+
+        .cta-section {
+            position: relative;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient( rgba(15, 17, 16, 0.78), rgba(15, 17, 16, 0.88) ), url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta-content {
+            max-width: 750px;
+            position: relative;
+            z-index: 2;
+        }
+
+            .cta-content h2 {
+                font-family: Georgia, serif;
+                font-size: clamp(40px, 5vw, 68px);
+                font-weight: normal;
+                line-height: 1.2;
+                color: var(--cream);
+                margin-bottom: 25px;
+            }
+
+            .cta-content p {
+                max-width: 480px;
+                margin: 0 auto 35px;
+                color: #c0c0b9;
+                font-size: 13px;
+                line-height: 1.9;
+            }
+
+        /* CTA Button */
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 17px 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: all 0.35s ease;
+        }
+
+            .cta-button span {
+                font-size: 18px;
+                transition: transform 0.35s ease;
+            }
+
+            .cta-button:hover {
+                background: var(--cream);
+            }
+
+                .cta-button:hover span {
+                    transform: translateX(6px);
+                }
+
+        /* Background Decoration */
+
+        .cta-decoration {
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: clamp(25px, 5vw, 65px);
+            letter-spacing: 10px;
+            color: rgba(255, 255, 255, 0.035);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .cta-section {
+                min-height: 450px;
+                padding: 75px 6%;
+            }
+
+            .cta-content h2 {
+                font-size: 40px;
+            }
+
+            .cta-content p {
+                font-size: 12px;
+            }
+
+            .cta-decoration {
+                letter-spacing: 5px;
+                bottom: 18px;
+            }
+        }
+
+
+
+        /* =========================
+   CONTACT SECTION
+========================= */
+
+        .contact {
+            background: #151716;
+        }
+
+        /* Heading */
+
+        .contact-heading {
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+            .contact-heading h2 {
+                font-family: Georgia, serif;
+                font-size: clamp(38px, 4.5vw, 60px);
+                font-weight: normal;
+                line-height: 1.2;
+                margin-bottom: 22px;
+            }
+
+            .contact-heading p {
+                color: var(--gray);
+                font-size: 13px;
+                line-height: 1.9;
+                max-width: 480px;
+            }
+
+        /* Contact Layout */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 0.8fr 1.5fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        /* Contact Information */
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            padding-top: 10px;
+        }
+
+        .contact-item {
+            border-left: 1px solid var(--gold);
+            padding-left: 22px;
+        }
+
+        .contact-label {
+            color: var(--gold);
+            font-size: 9px;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .contact-item p {
+            color: #c3c3bd;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* Contact Form */
+
+        .contact-form {
+            background: #202321;
+            padding: 40px;
+            border: 1px solid rgba(198, 169, 108, 0.15);
+        }
+
+        #contact-form {
+            scroll-margin-top: 30px;
+        }
+
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+            .form-group label {
+                color: var(--gold);
+                font-size: 9px;
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                background: #181b19;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 15px;
+                color: var(--cream);
+                font-family: inherit;
+                font-size: 12px;
+                outline: none;
+                transition: border-color 0.3s ease, background 0.3s ease;
+            }
+
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    border-color: var(--gold);
+                    background: #1b1e1c;
+                }
+
+                .form-group input::placeholder,
+                .form-group textarea::placeholder {
+                    color: #777b74;
+                }
+
+                .form-group select option {
+                    background: #202321;
+                    color: var(--cream);
+                }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 130px;
+            }
+
+        /* Submit Button */
+
+        .contact-submit {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: none;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 18px 22px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            transition: background 0.3s ease;
+        }
+
+            .contact-submit span {
+                font-size: 18px;
+                transition: transform 0.3s ease;
+            }
+
+            .contact-submit:hover {
+                background: var(--cream);
+            }
+
+                .contact-submit:hover span {
+                    transform: translateX(5px);
+                }
+
+        /* Form Feedback */
+
+        .form-message {
+            margin-top: 20px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--gold);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .contact-info {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .contact {
+                padding: 75px 6%;
+            }
+
+            .contact-heading {
+                margin-bottom: 40px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-form {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+
+
+
+        /* =========================
+   FOOTER
+========================= */
+
+        .footer {
+            background: #101211;
+            padding: 70px 8% 25px;
+            border-top: 1px solid rgba(198, 169, 108, 0.2);
+        }
+
+        /* Footer Main */
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 60px;
+            padding-bottom: 55px;
+        }
+
+        /* Brand */
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+            .footer-brand .logo {
+                display: inline-block;
+                margin-bottom: 25px;
+            }
+
+            .footer-brand p {
+                color: #92958e;
+                font-size: 12px;
+                line-height: 1.9;
+                max-width: 250px;
+            }
+
+        /* Footer Links */
+
+        .footer-links {
+            display: flex;
+            gap: 100px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+            .footer-column h4 {
+                color: var(--gold);
+                font-size: 10px;
+                letter-spacing: 2px;
+                margin-bottom: 8px;
+            }
+
+            .footer-column a {
+                color: #a5a5a0;
+                font-size: 11px;
+                transition: color 0.3s ease;
+            }
+
+                .footer-column a:hover {
+                    color: var(--cream);
+                }
+
+        /* Footer Bottom */
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+            .footer-bottom span {
+                color: #777b74;
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gold);
+            color: #171a18;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(198, 169, 108, 0.3);
+            transition: all 0.3s ease;
+        }
+
+            .back-top:hover {
+                background: #171a18;
+                color: var(--gold);
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(198, 169, 108, 0.5);
+            }
+
+        /* Responsive */
+
+        @media (max-width: 800px) {
+
+            .footer-main {
+                flex-direction: column;
+                gap: 45px;
+            }
+
+            .footer-links {
+                gap: 70px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .footer {
+                padding: 60px 6% 25px;
+            }
+
+            .footer-links {
+                gap: 45px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: start;
+                gap: 18px;
+            }
+
+                .footer-bottom span {
+                    line-height: 1.8;
+                }
+        }
+
+
+
+        /* =========================
+   FLOATING WHATSAPP BUTTON
+========================= */
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #25D366;
+            color: #ffffff;
+            padding: 15px 22px;
+            border-radius: 50px;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.25);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* WhatsApp Icon */
+
+        .whatsapp-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .whatsapp-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+        /* Hover Effect */
+
+        .whatsapp-button:hover {
+            background: #20ba59;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 18px;
+                font-size: 11px;
+            }
+
+            .whatsapp-icon {
+                font-size: 20px;
+            }
+        }
+
+
+
+
+        .search-box {
+            grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+        }
+
+        .search-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            min-width: 0;
+        }
+
+            .search-actions .search-button,
+            .search-actions .reset-button {
+                width: 100%;
+                min-width: 0;
+                flex: none;
+                padding: 16px 8px;
+                font-size: 10px;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                box-sizing: border-box;
+            }
+
+
+
+                /* SEARCH BUTTON HOVER */
+                .search-actions .search-button:hover {
+                    background: transparent;
+                    color: #d8bd86;
+                    border-color: #d8bd86;
+                }
+
+                /* RESET BUTTON HOVER */
+                .search-actions .reset-button:hover {
+                    background: #d8bd86;
+                    color: #171a18;
+                    border-color: #d8bd86;
+                }
+
+
+
+
+                .search-actions .search-button:hover {
+                    background: #d8bd86;
+                    color: #171a18;
+                    border-color: #d8bd86;
+                }
+
+                .search-actions .reset-button:hover {
+                    background: transparent;
+                    color: #d8bd86;
+                    border-color: #d8bd86;
+                }
+
+
+
+
+            .search-actions .search-button,
+            .search-actions .reset-button {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .search-actions .search-button:hover,
+                .search-actions .reset-button:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 8px 25px rgba(216, 189, 134, 0.4);
+                }
+
+
+
+        .search-results-count {
+            color: #d8bd86;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(216, 189, 134, 0.2);
+            transition: opacity 0.3s ease;
+        }
+
+
+
+
+        /* WhatsApp Pulse Animation */
+        .whatsapp-button {
+            animation: whatsappPulse 2s infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+
+
+        .whatsapp-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .whatsapp-button:hover {
+                transform: translateY(-5px) scale(1.08);
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            }
+
+
+
+
+        /* Property Cards Reveal */
+        .property-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+            .property-card.show-card {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+
+                .property-card.show-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 18px 40px rgba(216, 189, 134, 0.28);
+                    transition: transform 0.35s ease, box-shadow 0.35s ease;
+                }
+
+
+
+        /* Back to Top Golden Pulse */
+        .back-top {
+            animation: backTopPulse 2.5s infinite;
+        }
+
+        @keyframes backTopPulse {
+            0% {
+                box-shadow: 0 5px 20px rgba(198, 169, 108, 0.3);
+            }
+
+            70% {
+                box-shadow: 0 5px 20px 12px rgba(198, 169, 108, 0);
+            }
+
+            100% {
+                box-shadow: 0 5px 20px 0 rgba(198, 169, 108, 0);
+            }
+        }
+
+
+
+        /* Navigation Gold Underline */
+        nav a {
+            position: relative;
+            text-decoration: none;
+        }
+
+            nav a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -7px;
+                width: 0;
+                height: 2px;
+                background: var(--gold);
+                box-shadow: 0 0 8px rgba(216, 189, 134, 0.7);
+                transition: width 0.3s ease;
+            }
+
+            nav a:hover::after {
+                width: 100%;
+            }
+
+            /* Keep navigation text color unchanged */
+
+            nav a:hover {
+                color: #ffffff !important;
+            }
+
+
+
+        /* Hero Entrance Animation */
+        .hero-content {
+            animation: heroEntrance 1.2s ease-out both;
+        }
+
+        @keyframes heroEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            AURELIA
+            <span>ESTATES</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+        </nav>
+
+        <a href="#contact-form" class="nav-contact">Contact Us</a>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-label">EXCEPTIONAL PROPERTIES · EXCEPTIONAL LIVING</span>
+
+            <h1>Discover a Place<br>Beyond Ordinary.</h1>
+
+            <p>
+                A curated collection of extraordinary homes
+                for those who appreciate the art of living.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#properties" class="hero-btn">Explore Properties</a>
+                <a href="#about" class="hero-link">Discover Aurelia &rarr;</a>
+            </div>
+
+        </div>
+
+        <div class="hero-bottom">
+            <span>PRIVATE COLLECTION OF LUXURY HOMES</span>
+            <span>01 — 04</span>
+        </div>
+
+    </section>
+
+
+
+    <!-- Featured Properties Section -->
+    <section class="properties" id="properties">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">THE AURELIA COLLECTION</span>
+                <h2>Exceptional Properties.</h2>
+            </div>
+
+            <p>
+                Discover carefully selected residences where
+                architecture, location, and lifestyle meet.
+            </p>
+
+        </div>
+        <p id="search-results-count" class="search-results-count">
+            3 PROPERTIES FOUND
+        </p>
+        <div class="property-grid">
+
+            <!-- Property 1 -->
+            <article class="property-card"
+                     data-location="Beverly Hills, California"
+                     data-type="Villa"
+                     data-price="2450000">
+
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85" alt="Modern luxury villa">
+                    <span class="property-tag">FEATURED</span>
+                </div>
+
+                <div class="property-info">
+
+                    <span class="property-location">BEVERLY HILLS, CALIFORNIA</span>
+
+                    <h3>Modern Hillside Residence</h3>
+
+                    <div class="property-details">
+                        <span>4 Bedrooms</span>
+                        <span>3 Bathrooms</span>
+                        <span>3,200 Sq Ft</span>
+                    </div>
+
+                    <div class="property-footer">
+                        <span class="property-price">$2,450,000</span>
+                        <a href="#contact-form">Inquire &rarr;</a>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- Property 2 -->
+            <article class="property-card"
+                     data-location="Malibu, California"
+                     data-type="Estate"
+                     data-price="3800000">
+
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85" alt="Contemporary luxury home">
+                    <span class="property-tag">NEW LISTING</span>
+                </div>
+
+                <div class="property-info">
+
+                    <span class="property-location">MALIBU, CALIFORNIA</span>
+
+                    <h3>Coastal Contemporary Estate</h3>
+
+                    <div class="property-details">
+                        <span>5 Bedrooms</span>
+                        <span>4 Bathrooms</span>
+                        <span>4,100 Sq Ft</span>
+                    </div>
+
+                    <div class="property-footer">
+                        <span class="property-price">$3,800,000</span>
+                        <a href="#contact-form">Inquire &rarr;</a>
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- Property 3 -->
+            <article class="property-card"
+                     data-location="Miami, Florida"
+                     data-type="House"
+                     data-price="1950000">
+
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85" alt="Elegant luxury property">
+                    <span class="property-tag">EXCLUSIVE</span>
+                </div>
+
+                <div class="property-info">
+
+                    <span class="property-location">MIAMI, FLORIDA</span>
+
+                    <h3>Private Garden Residence</h3>
+
+                    <div class="property-details">
+                        <span>3 Bedrooms</span>
+                        <span>3 Bathrooms</span>
+                        <span>2,800 Sq Ft</span>
+                    </div>
+
+                    <div class="property-footer">
+                        <span class="property-price">$1,950,000</span>
+                        <a href="#contact-form">Inquire &rarr;</a>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- About Section -->
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=85"
+                 alt="Elegant luxury architectural residence">
+
+            <div class="about-image-caption">
+                <span>THE ART OF EXCEPTIONAL LIVING</span>
+            </div>
+
+        </div>
+
+        <div class="about-content">
+
+            <span class="section-label">OUR PHILOSOPHY</span>
+
+            <h2>More Than a Property.<br>A Way of Life.</h2>
+
+            <p>
+                At Aurelia Estates, we believe that finding a home
+                is about discovering a place that reflects who you are
+                and how you choose to live.
+            </p>
+
+            <p>
+                Our carefully curated collection brings together
+                distinctive architecture, exceptional locations,
+                and timeless elegance.
+            </p>
+
+            <div class="about-stats">
+
+                <div class="stat">
+                    <strong>12+</strong>
+                    <span>Years of Excellence</span>
+                </div>
+
+                <div class="stat">
+                    <strong>350+</strong>
+                    <span>Properties Presented</span>
+                </div>
+
+                <div class="stat">
+                    <strong>98%</strong>
+                    <span>Client Satisfaction</span>
+                </div>
+
+            </div>
+
+            <a href="#contact-form" class="about-btn">
+                Discover Our Approach <span>&rarr;</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+
+        <div class="services-heading">
+
+            <span class="section-label">WHAT WE OFFER</span>
+
+            <h2>A Complete Real Estate Experience.</h2>
+
+            <p>
+                From the first conversation to the final signature,
+                we make every step of your property journey exceptional.
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <!-- Service 1 -->
+            <article class="service-card">
+
+                <div class="service-number">01</div>
+
+                <div class="service-icon">&#8962;</div>
+
+                <h3>Property Sales</h3>
+
+                <p>
+                    Discover exceptional properties selected
+                    to match your lifestyle and aspirations.
+                </p>
+
+                <a href="#contact-form">Explore Service <span>&rarr;</span></a>
+
+            </article>
+
+            <!-- Service 2 -->
+            <article class="service-card">
+
+                <div class="service-number">02</div>
+
+                <div class="service-icon">&#9830;</div>
+
+                <h3>Property Acquisition</h3>
+
+                <p>
+                    Receive expert guidance throughout your
+                    search and property purchasing journey.
+                </p>
+
+                <a href="#contact-form">Explore Service <span>&rarr;</span></a>
+
+            </article>
+
+            <!-- Service 3 -->
+            <article class="service-card">
+
+                <div class="service-number">03</div>
+
+                <div class="service-icon">&#9737;</div>
+
+                <h3>Investment Advisory</h3>
+
+                <p>
+                    Make informed real estate decisions with
+                    a thoughtful, opportunity-focused approach.
+                </p>
+
+                <a href="#contact-form">Explore Service <span>&rarr;</span></a>
+
+            </article>
+
+            <!-- Service 4 -->
+            <article class="service-card">
+
+                <div class="service-number">04</div>
+
+                <div class="service-icon">&#10022;</div>
+
+                <h3>Property Management</h3>
+
+                <p>
+                    Professional support to help protect
+                    and manage your valuable property assets.
+                </p>
+
+                <a href="#contact-form">Explore Service <span>&rarr;</span></a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Property Search Section -->
+    <section class="property-search" id="search">
+
+        <div class="search-content">
+
+            <span class="section-label">FIND YOUR PLACE</span>
+
+            <h2>Your Next Chapter<br>Starts Here.</h2>
+
+            <p>
+                Explore extraordinary properties tailored
+                to your vision and lifestyle.
+            </p>
+
+            <div class="search-box">
+
+                <div class="search-field">
+
+                    <label for="search-location">LOCATION</label>
+
+                    <input type="text"
+                           id="search-location"
+                           placeholder="City or neighborhood">
+
+                </div>
+
+                <div class="search-field">
+
+                    <label for="search-type">PROPERTY TYPE</label>
+
+                    <select id="search-type">
+
+                        <option value="">All Properties</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="House">House</option>
+                        <option value="Estate">Estate</option>
+
+                    </select>
+
+                </div>
+
+                <div class="search-field">
+
+                    <label for="search-price">MAXIMUM PRICE</label>
+
+                    <select id="search-price">
+
+                        <option value="">Any Price</option>
+                        <option value="1000000">Up to $1M</option>
+                        <option value="2000000">Up to $2M</option>
+                        <option value="5000000">Up to $5M</option>
+
+                    </select>
+
+                </div>
+
+                <div class="search-actions">
+
+                    <button id="search-button" class="search-button" type="button">
+                        SEARCH PROPERTIES &rarr;
+                    </button>
+
+                    <button id="reset-search" class="reset-button" type="button">
+                        RESET SEARCH
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="search-note">
+                <span></span>
+                PERSONALIZED PROPERTY DISCOVERY
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+
+        <div class="cta-content">
+
+            <span class="section-label">YOUR NEXT CHAPTER</span>
+
+            <h2>Some Places Are<br>Simply Meant for You.</h2>
+
+            <p>
+                Let us help you discover a home that feels
+                extraordinary from the very first moment.
+            </p>
+
+            <a href="#contact-form" class="cta-button">
+                Begin Your Journey <span>&rarr;</span>
+            </a>
+
+        </div>
+
+        <div class="cta-decoration">
+            AURELIA ESTATES
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+
+        <div class="contact-heading">
+
+            <span class="section-label">LET'S CONNECT</span>
+
+            <h2>Find Your Place<br>in the World.</h2>
+
+            <p>
+                Whether you're searching for your dream home
+                or exploring an investment, we're here to help.
+            </p>
+
+        </div>
+
+        <div class="contact-container">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <div class="contact-item">
+                    <span class="contact-label">VISIT OUR OFFICE</span>
+                    <p> Beverly Hills, California<br>United States</p>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">CALL US</span>
+                    <p>+1 (310) 555-0184</p>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">EMAIL</span>
+                    <p>hello@aureliaestates.com</p>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">OFFICE HOURS</span>
+                    <p>Monday – Saturday<br>9:00 AM – 6:00 PM</p>
+                </div>
+
+            </div>
+
+            <!-- Inquiry Form -->
+            <form class="contact-form" id="contact-form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="contact-name">FULL NAME</label>
+                        <input type="text" id="contact-name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">EMAIL ADDRESS</label>
+                        <input type="email" id="contact-email" placeholder="Your email" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="contact-phone">PHONE NUMBER</label>
+                        <input type="tel" id="contact-phone" placeholder="Your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-interest">I'M INTERESTED IN</label>
+
+                        <select id="contact-interest" required>
+
+                            <option value="" disabled selected>Select an option</option>
+                            <option>Buying a Property</option>
+                            <option>Selling a Property</option>
+                            <option>Property Investment</option>
+                            <option>Property Management</option>
+                            <option>General Inquiry</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">YOUR MESSAGE</label>
+                    <textarea id="contact-message" rows="5" placeholder="Tell us what you're looking for..." required></textarea>
+                </div>
+
+                <button type="submit" class="contact-submit">
+                    SEND INQUIRY <span>&rarr;</span>
+                </button>
+
+                <div class="form-message" id="form-message"></div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/96171734416?text=Hello%2C%20I%20am%20interested%20in%20your%20properties."
+       class="whatsapp-button"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contact us on WhatsApp">
+
+        <span class="whatsapp-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.52 3.48A11.87 11.87 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.95L.05 24l6.3-1.65a11.9 11.9 0 0 0 5.7 1.45h.01c6.58 0 11.93-5.35 11.93-11.93 0-3.19-1.24-6.19-3.47-8.39ZM12.06 21.8h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.74.98 1-3.65-.24-.38a9.85 9.85 0 0 1-1.52-5.22c0-5.46 4.45-9.9 9.91-9.9a9.84 9.84 0 0 1 7.02 2.9 9.85 9.85 0 0 1 2.9 7.02c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.41c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.78-1.5-1.75-1.67-2.05-.17-.3-1.35-1.69-1.35-1.69s-.1-.12-.25-.12-.35.05-.53.25c-.18.2-.7.68-.7 1.65s.73 1.92.83 2.05c.1.13 1.43 2.18 3.47 3.06.48.2.86.32 1.15.4.48.15.91.13 1.25.08.38-.06 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.28-.2-.58-.35Z" />
+            </svg>
+        </span>
+
+        <span class="whatsapp-text">CONTACT US</span>
+
+    </a>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    AURELIA
+                    <span>ESTATES</span>
+                </a>
+
+                <p>
+                    Extraordinary properties.
+                    Exceptional living.
+                    A place to call your own.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+                    <h4>EXPLORE</h4>
+                    <a href="#home">Home</a>
+                    <a href="#properties">Properties</a>
+                    <a href="#about">Our Story</a>
+                    <a href="#services">Services</a>
+                </div>
+
+                <div class="footer-column">
+                    <h4>DISCOVER</h4>
+                    <a href="#search">Property Search</a>
+                    <a href="#contact-form">Contact</a>
+                    <a href="#contact-form">Property Inquiry</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>&copy; 2026 AURELIA ESTATES. ALL RIGHTS RESERVED.</span>
+
+            <a href="#home" class="back-top">
+                &uarr;
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+    <script>
+
+
+
+        // =========================
+        // PROPERTY SEARCH FUNCTION
+        // =========================
+
+        // =========================
+        // PROPERTY SEARCH FUNCTION
+        // =========================
+
+        const searchButton = document.getElementById("search-button");
+
+        searchButton.addEventListener("click", function () {
+
+            const locationInput = document.getElementById("search-location").value.trim().toLowerCase();
+            const typeInput = document.getElementById("search-type").value;
+            const priceInput = document.getElementById("search-price").value;
+
+            const properties = document.querySelectorAll(".property-card");
+
+            let resultsFound = 0;
+
+            properties.forEach(function (property) {
+
+                const location = property.dataset.location.toLowerCase();
+                const type = property.dataset.type;
+                const price = Number(property.dataset.price);
+
+                const matchesLocation = locationInput === "" || location.includes(locationInput);
+                const matchesType = typeInput === "" || type === typeInput;
+                const matchesPrice = priceInput === "" || price <= Number(priceInput);
+
+                if (matchesLocation && matchesType && matchesPrice) {
+                    property.style.display = "";
+                    resultsFound++;
+                } else {
+                    property.style.display = "none";
+                }
+
+            });
+
+
+            const resultsCounter = document.getElementById("search-results-count");
+
+            if (resultsFound === 0) {
+                resultsCounter.textContent = "NO PROPERTIES FOUND";
+            } else {
+                resultsCounter.textContent = resultsFound +
+                    (resultsFound === 1 ? " PROPERTY FOUND" : " PROPERTIES FOUND");
+            }
+
+            const firstVisibleProperty = document.querySelector(".property-card:not([style*='display: none'])");
+
+            if (firstVisibleProperty) {
+                window.scrollTo({
+                    top: firstVisibleProperty.getBoundingClientRect().top + window.scrollY - 100,
+                    behavior: "smooth"
+                });
+            }
+
+            if (resultsFound === 0) {
+                alert("No properties found. Please try different search criteria.");
+            }
+
+        });
+
+
+
+        // =========================
+        // RESET PROPERTY SEARCH
+        // =========================
+
+        const resetButton = document.getElementById("reset-search");
+
+        resetButton.addEventListener("click", function () {
+
+            document.getElementById("search-location").value = "";
+            document.getElementById("search-type").value = "";
+            document.getElementById("search-price").value = "";
+
+            const properties = document.querySelectorAll(".property-card");
+
+            properties.forEach(function (property) {
+                property.style.display = "";
+            });
+
+
+            document.getElementById("search-results-count").textContent =
+                properties.length + " PROPERTIES FOUND";
+
+            const propertiesSection = document.getElementById("properties");
+
+            const firstProperty = document.querySelector(".property-card");
+
+            if (firstProperty) {
+                window.scrollTo({
+                    top: firstProperty.getBoundingClientRect().top + window.scrollY - 100,
+                    behavior: "smooth"
+                });
+            }
+
+        });
+
+
+
+
+        const propertyObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show-card");
+                    propertyObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll(".property-card").forEach(function (card) {
+            propertyObserver.observe(card);
+        });
+
+
+
+
+
+    </script>
+
+</body>
+</html>
