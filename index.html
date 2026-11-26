@@ -1666,18 +1666,7 @@
 
 
 
-        .search-box {
-            grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
-        }
-
-        .search-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            width: 100%;
-            min-width: 0;
-        }
-
+        
             .search-actions .search-button,
             .search-actions .reset-button {
                 width: 100%;
@@ -1944,7 +1933,72 @@
             scroll-padding-top: 20px;
         }
 
-     
+
+        /* SEARCH BUTTONS - CLEAN RESPONSIVE DESIGN */
+
+        .search-box {
+            grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+        }
+
+        .search-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+            min-width: 0;
+        }
+
+            .search-actions button {
+                width: 100%;
+                min-width: 0;
+                min-height: 54px;
+                padding: 14px 6px;
+                box-sizing: border-box;
+                font-size: 10px;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+            }
+
+            .search-actions .search-button:hover {
+                background: #d8bd86;
+                color: #171a18;
+                transform: translateY(-4px);
+                box-shadow: 0 8px 25px rgba(216, 189, 134, 0.4);
+            }
+
+            .search-actions .reset-button:hover {
+                background: transparent;
+                color: #d8bd86;
+                transform: translateY(-4px);
+                box-shadow: 0 8px 25px rgba(216, 189, 134, 0.25);
+            }
+
+        @media (max-width: 900px) {
+            .search-box {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .search-actions {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+                .search-actions button {
+                    font-size: 9px;
+                    letter-spacing: 0.5px;
+                    padding: 12px 4px;
+                }
+        }
+
+
 
     </style>
 </head>
@@ -1974,7 +2028,7 @@
 
         <div class="hero-content">
 
-            <span class="hero-label">EXCEPTIONAL PROPERTIES · EXCEPTIONAL LIVING</span>
+            <span class="hero-label">EXCEPTIONAL PROPERTIES ï¿½ EXCEPTIONAL LIVING</span>
 
             <h1>Discover a Place<br>Beyond Ordinary.</h1>
 
@@ -1992,7 +2046,7 @@
 
         <div class="hero-bottom">
             <span>PRIVATE COLLECTION OF LUXURY HOMES</span>
-            <span>01 — 04</span>
+            <span>01 ï¿½ 04</span>
         </div>
 
     </section>
@@ -2427,7 +2481,7 @@
 
                 <div class="contact-item">
                     <span class="contact-label">OFFICE HOURS</span>
-                    <p>Monday – Saturday<br>9:00 AM – 6:00 PM</p>
+                    <p>Monday ï¿½ Saturday<br>9:00 AM ï¿½ 6:00 PM</p>
                 </div>
 
             </div>
