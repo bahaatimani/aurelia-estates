@@ -351,7 +351,8 @@
                 color: white;
             }
 
-        /* Responsive Design */
+
+        /* RESPONSIVE DESIGN */
 
         @media (max-width: 1000px) {
 
@@ -360,16 +361,116 @@
             }
 
             .section-heading {
-                align-items: start;
+                align-items: flex-start;
                 flex-direction: column;
                 gap: 18px;
             }
         }
 
+        /* MOBILE LAYOUT */
         @media (max-width: 650px) {
 
+            /* NAVIGATION */
+            .navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 18px;
+                padding: 18px 5%;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+                .navbar .logo {
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .navbar nav {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    width: 100%;
+                    gap: 5px;
+                    text-align: center;
+                }
+
+                    .navbar nav a {
+                        font-size: 11px;
+                        white-space: nowrap;
+                        padding: 8px 0;
+                    }
+
+                .navbar .nav-contact {
+                    display: block;
+                    width: 100%;
+                    max-width: 220px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    padding: 12px 15px;
+                }
+
+            /* FULL MOBILE HERO */
+            .hero {
+                min-height: calc(100svh - 150px);
+                height: auto;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 65px 7% 85px;
+                position: relative;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .hero-label {
+                font-size: 9px;
+                letter-spacing: 2px;
+                line-height: 1.8;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(36px, 10vw, 48px);
+                line-height: 1.12;
+                margin: 20px 0;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+                line-height: 1.8;
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 18px;
+                margin-top: 28px;
+            }
+
+            .hero-bottom {
+                position: absolute;
+                bottom: 22px;
+                left: 7%;
+                right: 7%;
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+
+            /* PROPERTY CARDS */
             .properties {
-                padding: 75px 6%;
+                padding: 65px 6%;
             }
 
             .property-grid {
@@ -388,7 +489,68 @@
                 .property-info h3 {
                     font-size: 22px;
                 }
+
+            /* WHATSAPP FLOATING BUTTON */
+            .whatsapp-button {
+                position: fixed !important;
+                left: 16px !important;
+                right: auto !important;
+                bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+                width: 56px !important;
+                min-width: 56px !important;
+                max-width: 56px !important;
+                height: 56px !important;
+                min-height: 56px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                box-sizing: border-box !important;
+                z-index: 10000 !important;
+                flex: none !important;
+            }
+
+            .whatsapp-text {
+                display: none !important;
+            }
+
+            .whatsapp-icon {
+                width: 27px !important;
+                height: 27px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+                .whatsapp-icon svg {
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+
+            /* BACK TO TOP */
+            .back-top {
+                position: fixed !important;
+                right: 16px !important;
+                left: auto !important;
+                bottom: calc(24px + env(safe-area-inset-bottom)) !important;
+                width: 48px !important;
+                min-width: 48px !important;
+                height: 48px !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                font-size: 24px !important;
+                z-index: 10000 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                box-sizing: border-box !important;
+            }
         }
+
 
 
         /* =========================
@@ -401,6 +563,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 85px;
+            scroll-margin-top: -115px;
         }
 
         /* About Image */
@@ -1709,76 +1872,75 @@
 
 
 
-/* Mobile Floating Buttons */
-@media (max-width: 768px) {
+        /* Mobile Floating Buttons */
+        @media (max-width: 768px) {
 
-    /* WhatsApp - Compact Circular Button */
-    .whatsapp-button {
-        position: fixed !important;
-        left: 18px !important;
-        right: auto !important;
-        bottom: calc(22px + env(safe-area-inset-bottom)) !important;
+            /* WhatsApp - Compact Circular Button */
+            .whatsapp-button {
+                position: fixed !important;
+                left: 18px !important;
+                right: auto !important;
+                bottom: calc(22px + env(safe-area-inset-bottom)) !important;
+                width: 58px !important;
+                min-width: 58px !important;
+                max-width: 58px !important;
+                height: 58px !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                gap: 0 !important;
+                z-index: 10000;
+                box-sizing: border-box;
+            }
 
-        width: 58px !important;
-        min-width: 58px !important;
-        max-width: 58px !important;
-        height: 58px !important;
-        padding: 0 !important;
+            .whatsapp-text {
+                display: none !important;
+            }
 
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+            .whatsapp-icon {
+                width: 27px;
+                height: 27px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-        border-radius: 50% !important;
-        gap: 0 !important;
-        z-index: 10000;
-        box-sizing: border-box;
-    }
+                .whatsapp-icon svg {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
 
-    .whatsapp-text {
-        display: none !important;
-    }
-
-    .whatsapp-icon {
-        width: 27px;
-        height: 27px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .whatsapp-icon svg {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-
-    /* Back to Top - Always Visible */
-    .back-top {
-        position: fixed !important;
-        right: 18px !important;
-        left: auto !important;
-        bottom: calc(27px + env(safe-area-inset-bottom)) !important;
-
-        width: 48px !important;
-        height: 48px !important;
-        padding: 0 !important;
-
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-
-        border-radius: 50% !important;
-        font-size: 24px !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        z-index: 10000;
-        box-sizing: border-box;
-    }
-}
+            /* Back to Top - Always Visible */
+            .back-top {
+                position: fixed !important;
+                right: 18px !important;
+                left: auto !important;
+                bottom: calc(27px + env(safe-area-inset-bottom)) !important;
+                width: 48px !important;
+                height: 48px !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                font-size: 24px !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                z-index: 10000;
+                box-sizing: border-box;
+            }
+        }
 
 
-        
+        html {
+            scroll-padding-top: 20px;
+        }
+
+     
+
     </style>
 </head>
 <body>
@@ -1807,7 +1969,7 @@
 
         <div class="hero-content">
 
-            <span class="hero-label">EXCEPTIONAL PROPERTIES Â· EXCEPTIONAL LIVING</span>
+            <span class="hero-label">EXCEPTIONAL PROPERTIES · EXCEPTIONAL LIVING</span>
 
             <h1>Discover a Place<br>Beyond Ordinary.</h1>
 
@@ -1817,15 +1979,15 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="#properties" class="hero-btn">Explore Properties</a>
+                <a href="#property-list" class="hero-btn">Explore Properties</a>
                 <a href="#about" class="hero-link">Discover Aurelia &rarr;</a>
             </div>
 
         </div>
-
+        
         <div class="hero-bottom">
             <span>PRIVATE COLLECTION OF LUXURY HOMES</span>
-            <span>01 Â— 04</span>
+            <span>01 — 04</span>
         </div>
 
     </section>
@@ -1851,7 +2013,7 @@
         <p id="search-results-count" class="search-results-count">
             3 PROPERTIES FOUND
         </p>
-        <div class="property-grid">
+        <div class="property-grid" id="property-list">
 
             <!-- Property 1 -->
             <article class="property-card"
@@ -2260,7 +2422,7 @@
 
                 <div class="contact-item">
                     <span class="contact-label">OFFICE HOURS</span>
-                    <p>Monday Â– Saturday<br>9:00 AM Â– 6:00 PM</p>
+                    <p>Monday – Saturday<br>9:00 AM – 6:00 PM</p>
                 </div>
 
             </div>
