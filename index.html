@@ -1707,6 +1707,78 @@
         }
 
 
+
+
+/* Mobile Floating Buttons */
+@media (max-width: 768px) {
+
+    /* WhatsApp - Compact Circular Button */
+    .whatsapp-button {
+        position: fixed !important;
+        left: 18px !important;
+        right: auto !important;
+        bottom: calc(22px + env(safe-area-inset-bottom)) !important;
+
+        width: 58px !important;
+        min-width: 58px !important;
+        max-width: 58px !important;
+        height: 58px !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        border-radius: 50% !important;
+        gap: 0 !important;
+        z-index: 10000;
+        box-sizing: border-box;
+    }
+
+    .whatsapp-text {
+        display: none !important;
+    }
+
+    .whatsapp-icon {
+        width: 27px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .whatsapp-icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    /* Back to Top - Always Visible */
+    .back-top {
+        position: fixed !important;
+        right: 18px !important;
+        left: auto !important;
+        bottom: calc(27px + env(safe-area-inset-bottom)) !important;
+
+        width: 48px !important;
+        height: 48px !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        border-radius: 50% !important;
+        font-size: 24px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 10000;
+        box-sizing: border-box;
+    }
+}
+
+
+        
     </style>
 </head>
 <body>
@@ -1735,7 +1807,7 @@
 
         <div class="hero-content">
 
-            <span class="hero-label">EXCEPTIONAL PROPERTIES · EXCEPTIONAL LIVING</span>
+            <span class="hero-label">EXCEPTIONAL PROPERTIES Â· EXCEPTIONAL LIVING</span>
 
             <h1>Discover a Place<br>Beyond Ordinary.</h1>
 
@@ -1753,7 +1825,7 @@
 
         <div class="hero-bottom">
             <span>PRIVATE COLLECTION OF LUXURY HOMES</span>
-            <span>01 — 04</span>
+            <span>01 Â— 04</span>
         </div>
 
     </section>
@@ -2188,7 +2260,7 @@
 
                 <div class="contact-item">
                     <span class="contact-label">OFFICE HOURS</span>
-                    <p>Monday – Saturday<br>9:00 AM – 6:00 PM</p>
+                    <p>Monday Â– Saturday<br>9:00 AM Â– 6:00 PM</p>
                 </div>
 
             </div>
